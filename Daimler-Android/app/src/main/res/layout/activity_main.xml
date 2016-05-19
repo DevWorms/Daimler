@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:fillViewport="false">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="com.developers.devworms.daimler_android.MainActivity"
+        android:weightSum="1">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/nombreText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:nestedScrollingEnabled="true"
+            android:hint="Nombre (s)" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/apellidoPText"
+            android:layout_below="@+id/nombreText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="Apellido Paterno" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/apellidoMText"
+            android:layout_below="@+id/apellidoPText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/apellidoPText"
+            android:layout_alignEnd="@+id/apellidoPText"
+            android:hint="Apellido Materno" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/mailText"
+            android:hint="E-mail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:id="@+id/textView"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tipoSpinner"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:spinnerMode="dropdown"
+            android:text="Selecciona" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puesto"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/selecPuestoText"
+            android:hint="Puesto" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/selecEmpresaText"
+            android:hint="Empresa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Requiere traslado desde el Aeropuerto a la Ciudad de México?"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Si"
+                    android:id="@+id/siTrasBtn"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:id="@+id/noTrasBtn"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="true"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vueloText"
+            android:layout_gravity="center_horizontal"
+            android:hint="Vuelo en el que llegas" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:id="@+id/textView14"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerDia"
+            android:layout_gravity="center_horizontal" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerMes" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerAno"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:ems="10"
+            android:id="@+id/horaLlegadaText"
+            android:hint="Hora de llegada" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Requiere hospedaje?"
+            android:id="@+id/textView5"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="162dp"
+                        android:layout_height="wrap_content"
+                        android:text="Si"
+                        android:id="@+id/siHospBtn"
+                        android:checked="false" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:id="@+id/noHospBtn"
+                        android:layout_weight="0.42"
+                        android:checked="true" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Habitación"
+            android:id="@+id/textView15"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="165dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sencillo"
+                        android:id="@+id/sencilloBtn"
+                        android:layout_gravity="center_horizontal"
+                        android:checked="false" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Doble"
+                        android:id="@+id/dobleBtn"
+                        android:layout_gravity="center_horizontal"
+                        android:checked="true" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En caso de doble, poner nombre del acompañante"
+            android:id="@+id/textView16"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/acompananteText"
+            android:layout_gravity="center_horizontal"
+            android:hint="Nombre acompañante" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datos de pago"
+            android:id="@+id/textView7"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_gravity="center_horizontal"
+            android:hint="Número de tarjeta a 16 dígitos"
+            android:maxLines="16"
+            android:minLines="16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de tarjeta"
+            android:id="@+id/textView8"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tarjetaSpinner"
+            android:layout_gravity="center_horizontal"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Vencimiento"
+            android:id="@+id/textView9"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText2"
+                    android:layout_marginLeft="25dp"
+                    android:hint="00"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText3"
+                    android:hint="00"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Código de Seguridad"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:layout_gravity="center_horizontal"
+            android:minLines="1"
+            android:maxLines="4" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/passText"
+            android:layout_marginTop="25dp"
+            android:hint="Crea tu contraseña" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/cnfPassText"
+            android:hint="Confirma tu contraseña" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Siguiente"
+            android:id="@+id/sigRegistroBtn"
+            android:layout_marginTop="30dp"
+            android:onClick="moduloRegistro"
+            android:textColor="#ffffff"
+            android:background="#000000" />
+
+    </LinearLayout>
+
+</ScrollView>
