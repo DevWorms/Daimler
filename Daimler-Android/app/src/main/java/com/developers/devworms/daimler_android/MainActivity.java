@@ -2,6 +2,7 @@ package com.developers.devworms.daimler_android;
 
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -19,12 +21,26 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.io.StringReader;
 
 
 public class MainActivity extends AppCompatActivity {
 
     // Progress Dialog
     private ProgressDialog pDialog;
+
+    //  Datos Usuario
+    EditText nombre;
+    EditText paterno;
+    EditText materno;
+    EditText mail;
+
+    Spinner tipo;
+    EditText puesto;
+    EditText empresa;
+
+    EditText contrasena;
+    EditText repiteContrasena;
 
     // Vuelo
     EditText vuelo_text;
@@ -45,9 +61,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vuelo_text = (EditText)findViewById(R.id.vueloText);
+        //  Datos Usuario
+        nombre = (EditText)findViewById(R.id.nombreText);
+        paterno = (EditText)findViewById(R.id.apellidoPText);
+        materno = (EditText)findViewById(R.id.apellidoMText);
+        mail = (EditText)findViewById(R.id.mailText);
 
-        //  SPINNER AREA
+        tipo = (Spinner) findViewById(R.id.tipoSpinner);
+        puesto = (EditText)findViewById(R.id.selecPuestoText);
+        empresa = (EditText)findViewById(R.id.selecEmpresaText);
+
+        contrasena = (EditText)findViewById(R.id.passText);
+        repiteContrasena = (EditText)findViewById(R.id.cnfPassText);
+
+        //  Vuelo
+        vuelo_text = (EditText)findViewById(R.id.vueloText);
+        horaLlegada_text = (EditText)findViewById(R.id.horaLlegadaText);
+        spinnerDia = (Spinner)findViewById(R.id.spinnerDia);
+        spinnerMes = (Spinner)findViewById(R.id.spinnerMes);
+        spinnerAno = (Spinner)findViewById(R.id.spinnerAno);
+
+        //  Hospedaje
+        sencillo = (RadioButton)findViewById(R.id.sencilloBtn);
+        doble = (RadioButton)findViewById(R.id.dobleBtn);
+        acompanant = (EditText)findViewById(R.id.acompananteText);
+
+
+
+        //  SPINNER TIPO
             Spinner spinnerArea = (Spinner) findViewById(R.id.tipoSpinner);
 
             ArrayAdapter<CharSequence> adapterTipo = ArrayAdapter.createFromResource(this,
@@ -93,10 +134,28 @@ public class MainActivity extends AppCompatActivity {
             adapterAno.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerAno.setAdapter(adapterAno);
 
+
     }
 
     public void moduloRegistro (View view){
-        new LoadAlbums().execute();
+        String pass = contrasena.getText().toString();
+        String rePass = repiteContrasena.getText().toString();
+
+
+        if(pass.equals(rePass)) {
+            new LoadAlbums().execute();
+        }
+
+        else    {
+
+            Context context = getApplicationContext();
+            CharSequence text = "Las contraseñas no coinciden";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
     }
 
 
@@ -115,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
 
         horaLlegada_text.setFocusable(false);
         horaLlegada_text.setEnabled(false);
-
     }
 
     public void trasladoTrue (View view) {
@@ -133,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
         horaLlegada_text.setFocusable(true);
         horaLlegada_text.setEnabled(true);
-
     }
 
     public void hospedajeTrue (View view) {
@@ -161,6 +218,24 @@ public class MainActivity extends AppCompatActivity {
 
     class LoadAlbums extends AsyncTask<String, String, String> {
 
+
+        String nombreStr = nombre.getText().toString();
+        String patStr = paterno.getText().toString();
+        String matStr = materno.getText().toString();
+        String mailStr = mail.getText().toString();
+        String tipoStr = tipo.getSelectedItem().toString();
+        String puestoStr = puesto.getText().toString();
+        String empresaStr = empresa.getText().toString();
+        String vueloStr = vuelo_text.getText().toString();
+        String diaStr = spinnerDia.getSelectedItem().toString();
+        String mesStr = spinnerMes.getSelectedItem().toString();
+        String anoStr = spinnerAno.getSelectedItem().toString();
+        String horaStr = horaLlegada_text.getText().toString();
+        String sencilloStr = sencillo.getText().toString();
+        String dobleStr = doble.getText().toString();
+        String acompStr = acompanant.getText().toString();
+        String passStr = contrasena.getText().toString();
+
         /**
          * Before starting background thread Show Progress Dialog
          * */
@@ -168,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Listing...");
+            pDialog.setMessage("Registrando...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -182,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             OkHttpClient client = new OkHttpClient();
 
             MediaType mediaType = MediaType.parse("application/octet-stream");
-            RequestBody body = RequestBody.create(mediaType, "{\n    'nombre' : 'Ricardo',\n    \"a_paterno\" : \"Rojas\",\n    \"a_materno\" : \"Mirón\",\n    \"email\" : \"mail@1234.com\",\n    \"tipo\" : \"Distribuidor\",\n    \"puesto\" : \"COO\",\n    \"empresa\" : \"UVG\",\n    \"translado\" : \"translado\",\n    \"llegada_vuelo\" : \"4444\",\n    \"dia\" : \"lunes\",\n    \"mes\" : \"febrero\",\n    \"ano\" : \"2016\",\n    \"hora_llegada\" : \"1250\",\n    \"hospedaje\" : \"Miércoles\",\n    \"tipo_habitacion\" : \"doble\",\n    \"nombre_acompanante\" : \"Salvador\",\n    \"contrasena\" : \"1234\"\n}");
+            RequestBody body = RequestBody.create(mediaType, "{\n    'nombre' : '" + nombreStr + "',\n    \"a_paterno\" : " + patStr + ",\n    \"a_materno\" : " + matStr + ",\n    \"email\" : " + mailStr + ",\n    \"tipo\" : " + tipoStr + ",\n    \"puesto\" : " + puestoStr + ",\n    \"empresa\" : " + empresaStr + ",\n    \"translado\" : \"translado\",\n    \"llegada_vuelo\" : " + vueloStr + ",\n    \"dia\" : " + diaStr + ",\n    \"mes\" : " + mesStr + ",\n    \"ano\" : " + anoStr + ",\n    \"hora_llegada\" : " + horaStr + ",\n    \"hospedaje\" : \"Miércoles\",\n    \"tipo_habitacion\" : " + tipoStr + ",\n    \"nombre_acompanante\" : " + acompStr + ",\n    \"contrasena\" : " + passStr + "\n}");
             Request request = new Request.Builder()
                     .url("http://app-daimler.palindromo.com.mx/APP/registro.php")
                     .post(body)
