@@ -53,8 +53,9 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="140dp"
+
             android:text="Cumbre post-venta"
             android:id="@+id/cumbrePVBtn"
             android:layout_weight="1"
@@ -62,7 +63,7 @@
             android:background="#e7e8ea" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="140dp"
             android:text="Sede"
             android:id="@+id/sedeBtn"
