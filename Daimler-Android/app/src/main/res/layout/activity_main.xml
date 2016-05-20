@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:fillViewport="false">
+    android:fillViewport="false"
+    android:background="@drawable/fondo">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,6 +69,14 @@
             android:ems="10"
             android:id="@+id/mailText"
             android:hint="E-mail" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/telefonoText"
+            android:hint="Teléfono" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -171,7 +180,7 @@
                     android:layout_gravity="center_horizontal"
                     android:checked="false"
                     android:layout_weight="1"
-                    android:onClick="trasladoFalse" />
+                    android:onClick="trasladoFalse"/>
 
             </RadioGroup>
 
@@ -231,6 +240,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Formato de 24 horas"
+            android:id="@+id/textView17"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#858585"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="¿Requiere hospedaje?"
             android:id="@+id/textView5"
             android:layout_below="@+id/mailText"
@@ -279,6 +306,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Del 20 al 22 de junio"
+            android:id="@+id/textView7"
+            android:layout_below="@+id/mailText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/tipoSpinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#858585"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Tipo de Habitación"
             android:id="@+id/textView15"
             android:layout_below="@+id/mailText"
@@ -311,15 +356,16 @@
                         android:text="Sencillo"
                         android:id="@+id/sencilloBtn"
                         android:layout_gravity="center_horizontal"
-                        android:checked="false" />
+                        android:onClick="acompananteFalse"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Doble"
+                        android:checked="true"
                         android:id="@+id/dobleBtn"
                         android:layout_gravity="center_horizontal"
-                        android:checked="true" />
+                        android:onClick="acompananteTrue"/>
                 </RadioGroup>
 
             </LinearLayout>
@@ -352,64 +398,11 @@
             android:layout_gravity="center_horizontal"
             android:hint="Nombre acompañante" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Datos de pago"
-            android:id="@+id/textView7"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="center_horizontal"
-            android:hint="Número de tarjeta a 16 dígitos"
-            android:maxLines="16"
-            android:minLines="16" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo de tarjeta"
-            android:id="@+id/textView8"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tarjetaSpinner"
-            android:layout_gravity="center_horizontal"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de Vencimiento"
+            android:text="Tipo de Pago"
             android:id="@+id/textView9"
             android:layout_below="@+id/mailText"
             android:layout_alignParentLeft="true"
@@ -422,68 +415,38 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="25dp"
             android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
-
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editText2"
-                    android:layout_marginLeft="25dp"
-                    android:hint="00"
-                    android:layout_weight="1" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/editText3"
-                    android:hint="00"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Código de Seguridad"
-            android:id="@+id/textView10"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
-
-        <EditText
-            android:layout_width="129dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText4"
             android:layout_gravity="center_horizontal"
-            android:minLines="1"
-            android:maxLines="4" />
+            android:textStyle="italic" />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pago con transferencia"
+                    android:id="@+id/pagoTransfBtn"
+                    android:layout_gravity="right"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pago con tarjeta"
+                    android:id="@+id/pagoTarjetaBtn"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="true" />
+
+            </RadioGroup>
+        </LinearLayout>
 
         <EditText
             android:layout_width="match_parent"

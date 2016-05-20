@@ -7,17 +7,67 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.developers.devworms.daimler_android.RegistroExito">
+    tools:context="com.developers.devworms.daimler_android.RegistroExito"
+    android:background="@drawable/fondo">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="GRACIAS POR REGISTRARTE"
+        android:text="GRACIAS POR PRE-REGISTRARTE"
         android:textAlignment="center"
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
         android:layout_marginTop="95dp"
         android:textSize="35dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" En breve serás contactado para realizar tu pago y te proporcionaremos tu código de registro"
+        android:textAlignment="center"
+        android:id="@+id/textView18"
+        android:textSize="20dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textIsSelectable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:ems="10"
+        android:id="@+id/numValidText"
+        android:layout_below="@+id/textView18"
+        android:layout_centerHorizontal="true"
+        android:hint="0000"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:id="@+id/ingrValidBtn"
+        android:layout_below="@+id/numValidText"
+        android:layout_centerHorizontal="true"
+        android:onClick="validarRegistro"
+        android:textColor="#ffffff"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="En caso de no recibir correo de confirmación; escríbanos a: confirmacion@palindromo.com.mx"
+        android:textAlignment="center"
+        android:id="@+id/textView8"
+        android:textSize="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/ingrValidBtn"
+        android:layout_marginTop="30dp"
+        android:textStyle="italic" />
 
 </RelativeLayout>

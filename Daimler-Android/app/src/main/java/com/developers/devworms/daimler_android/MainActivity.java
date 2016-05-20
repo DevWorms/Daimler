@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -24,7 +25,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
     // Progress Dialog
     private ProgressDialog pDialog;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     EditText paterno;
     EditText materno;
     EditText mail;
+    EditText telefono;
 
     Spinner tipo;
     EditText puesto;
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText contrasena;
     EditText repiteContrasena;
+
+    //Traslado
+    RadioButton siTras;
 
     // Vuelo
     EditText vuelo_text;
@@ -66,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         paterno = (EditText)findViewById(R.id.apellidoPText);
         materno = (EditText)findViewById(R.id.apellidoMText);
         mail = (EditText)findViewById(R.id.mailText);
+        telefono = (EditText)findViewById(R.id.telefonoText);
 
         tipo = (Spinner) findViewById(R.id.tipoSpinner);
         puesto = (EditText)findViewById(R.id.selecPuestoText);
@@ -73,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
         contrasena = (EditText)findViewById(R.id.passText);
         repiteContrasena = (EditText)findViewById(R.id.cnfPassText);
+
+        //  Traslado
+        siTras = (RadioButton)findViewById(R.id.siTrasBtn);
 
         //  Vuelo
         vuelo_text = (EditText)findViewById(R.id.vueloText);
@@ -97,15 +106,8 @@ public class MainActivity extends AppCompatActivity {
             adapterTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerArea.setAdapter(adapterTipo);
 
+            spinnerArea.setOnItemSelectedListener(this);
 
-        //  SPINNER TARJETA
-            Spinner spinnerTarjeta = (Spinner) findViewById(R.id.tarjetaSpinner);
-
-            ArrayAdapter<CharSequence> adapterTarjeta = ArrayAdapter.createFromResource(this,
-                    R.array.tarjeta_tipo_array, android.R.layout.simple_spinner_item);
-
-            adapterTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinnerTarjeta.setAdapter(adapterTarjeta);
 
         // SPINNER DIA
             spinnerDia = (Spinner) findViewById(R.id.spinnerDia);
@@ -134,85 +136,91 @@ public class MainActivity extends AppCompatActivity {
             adapterAno.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerAno.setAdapter(adapterAno);
 
-
     }
 
     public void moduloRegistro (View view){
         String pass = contrasena.getText().toString();
         String rePass = repiteContrasena.getText().toString();
 
-
-        if(pass.equals(rePass)) {
-            new LoadAlbums().execute();
-        }
-
-        else    {
-
+        if(pass.trim().length() == 0 || rePass.trim().length() == 0 ) {
             Context context = getApplicationContext();
-            CharSequence text = "Las contraseñas no coinciden";
+            CharSequence text = "Ingresa contraseña";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
 
+        else {
+
+            if (pass.equals(rePass)) {
+                new LoadAlbums().execute();
+            } else {
+
+                Context context = getApplicationContext();
+                CharSequence text = "Las contraseñas no coinciden";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        }
+
     }
 
 
     public void trasladoFalse (View view) {
-        vuelo_text.setFocusable(false);
         vuelo_text.setEnabled(false);
-
-        spinnerDia.setFocusable(false);
         spinnerDia.setEnabled(false);
-
-        spinnerMes.setFocusable(false);
         spinnerMes.setEnabled(false);
-
-        spinnerAno.setFocusable(false);
         spinnerAno.setEnabled(false);
-
-        horaLlegada_text.setFocusable(false);
         horaLlegada_text.setEnabled(false);
     }
 
     public void trasladoTrue (View view) {
-        vuelo_text.setFocusable(true);
         vuelo_text.setEnabled(true);
-
-        spinnerDia.setFocusable(true);
         spinnerDia.setEnabled(true);
-
-        spinnerMes.setFocusable(true);
         spinnerMes.setEnabled(true);
-
-        spinnerAno.setFocusable(true);
         spinnerAno.setEnabled(true);
-
-        horaLlegada_text.setFocusable(true);
         horaLlegada_text.setEnabled(true);
     }
 
     public void hospedajeTrue (View view) {
-        sencillo.setFocusable(true);
         sencillo.setEnabled(true);
-
-        doble.setFocusable(true);
         doble.setEnabled(true);
-
-        acompanant.setFocusable(true);
         acompanant.setEnabled(true);
     }
 
     public void hospedajeFalse (View view) {
-        sencillo.setFocusable(false);
         sencillo.setEnabled(false);
-
-        doble.setFocusable(false);
         doble.setEnabled(false);
-
-        acompanant.setFocusable(false);
         acompanant.setEnabled(false);
+    }
+
+    public void acompananteTrue(View view){
+        acompanant.setEnabled(true);
+    }
+
+    public void acompananteFalse(View view){
+        acompanant.setEnabled(false);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            if(position == 0)    {
+                puesto.setEnabled(true);
+                empresa.setEnabled(true);
+            }
+            else {
+                puesto.setEnabled(false);
+                empresa.setEnabled(false);
+            }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
 
@@ -223,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
         String patStr = paterno.getText().toString();
         String matStr = materno.getText().toString();
         String mailStr = mail.getText().toString();
+        String telefonoStr = telefono.getText().toString();
         String tipoStr = tipo.getSelectedItem().toString();
         String puestoStr = puesto.getText().toString();
         String empresaStr = empresa.getText().toString();

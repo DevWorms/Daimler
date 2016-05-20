@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.developers.devworms.daimler_android.menu"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Cumbre post-venta"
+            android:id="@+id/cumbrePVBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Sede"
+            android:id="@+id/sedeBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Agenda"
+            android:id="@+id/agendaBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Avisos y Notificaciones"
+            android:id="@+id/avisosBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Presentaciones"
+            android:id="@+id/presentBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="Fotografías"
+            android:id="@+id/fotoBtn"
+            android:layout_weight="1"
+            android:textColor="#a5a7a6"
+            android:background="#e7e8ea" />
+
+    </LinearLayout>
+
+</LinearLayout>
