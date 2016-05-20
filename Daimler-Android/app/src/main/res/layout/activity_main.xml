@@ -1,277 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:fillViewport="false"
-    android:background="@drawable/fondo">
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/barras"/>
+        </android.support.v7.widget.Toolbar>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+
         android:orientation="vertical"
-        tools:context="com.developers.devworms.daimler_android.MainActivity"
-        android:weightSum="1">
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/nombreText"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:nestedScrollingEnabled="true"
-            android:hint="Nombre (s)" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/apellidoPText"
-            android:layout_below="@+id/nombreText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:hint="Apellido Paterno" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/apellidoMText"
-            android:layout_below="@+id/apellidoPText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/apellidoPText"
-            android:layout_alignEnd="@+id/apellidoPText"
-            android:hint="Apellido Materno" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/mailText"
-            android:hint="E-mail" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:ems="10"
-            android:id="@+id/telefonoText"
-            android:hint="Teléfono" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo"
-            android:id="@+id/textView"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tipoSpinner"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:spinnerMode="dropdown"
-            android:text="Selecciona" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Puesto"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/selecPuestoText"
-            android:hint="Puesto"
-            android:enabled="false" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/selecEmpresaText"
-            android:hint="Empresa" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¿Requiere traslado desde el Aeropuerto a la Ciudad de México?"
-            android:id="@+id/textView4"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000" />
+        android:padding="10dp"
+        android:fillViewport="false"
+        android:background="@drawable/fondo"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="55dp">
 
         <LinearLayout
-            android:orientation="horizontal"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            tools:context="com.developers.devworms.daimler_android.MainActivity"
+            android:weightSum="1">
 
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/nombreText"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:nestedScrollingEnabled="true"
+                android:hint="Nombre (s)" />
 
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Si"
-                    android:id="@+id/siTrasBtn"
-                    android:layout_gravity="center_horizontal"
-                    android:checked="true"
-                    android:layout_weight="1"
-                    android:onClick="trasladoTrue"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/apellidoPText"
+                android:layout_below="@+id/nombreText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Apellido Paterno" />
 
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No"
-                    android:id="@+id/noTrasBtn"
-                    android:layout_gravity="center_horizontal"
-                    android:checked="false"
-                    android:layout_weight="1"
-                    android:onClick="trasladoFalse"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/apellidoMText"
+                android:layout_below="@+id/apellidoPText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/apellidoPText"
+                android:layout_alignEnd="@+id/apellidoPText"
+                android:hint="Apellido Materno" />
 
-            </RadioGroup>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/mailText"
+                android:hint="E-mail" />
 
-        </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/telefonoText"
+                android:hint="Teléfono" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/vueloText"
-            android:layout_gravity="center_horizontal"
-            android:hint="Vuelo en el que llegas" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo"
+                android:id="@+id/textView"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha"
-            android:id="@+id/textView14"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tipoSpinner"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:spinnerMode="dropdown"
+                android:text="Selecciona" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerDia"
-            android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puesto"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerMes" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/selecPuestoText"
+                android:hint="Puesto"
+                android:enabled="false" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerAno"
-            android:layout_gravity="center_horizontal" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/selecEmpresaText"
+                android:hint="Empresa" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/horaLlegadaText"
-            android:hint="Hora de llegada" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Formato de 24 horas"
-            android:id="@+id/textView17"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:textColor="#858585"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¿Requiere hospedaje?"
-            android:id="@+id/textView5"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Requiere traslado desde el Aeropuerto a la Ciudad de México?"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -284,61 +199,261 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:layout_width="162dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Si"
-                        android:id="@+id/siHospBtn"
+                        android:id="@+id/siTrasBtn"
+                        android:layout_gravity="center_horizontal"
                         android:checked="true"
-                        android:onClick="hospedajeTrue"/>
+                        android:layout_weight="1"
+                        android:onClick="trasladoTrue"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="No"
-                        android:id="@+id/noHospBtn"
-                        android:layout_weight="0.42"
+                        android:id="@+id/noTrasBtn"
+                        android:layout_gravity="center_horizontal"
                         android:checked="false"
-                        android:onClick="hospedajeFalse"/>
+                        android:layout_weight="1"
+                        android:onClick="trasladoFalse"/>
+
                 </RadioGroup>
 
             </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Del 20 al 22 de junio"
-            android:id="@+id/textView7"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:textColor="#858585"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vueloText"
+                android:layout_gravity="center_horizontal"
+                android:hint="Vuelo en el que llegas" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Habitación"
-            android:id="@+id/textView15"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:id="@+id/textView14"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerDia"
+                android:layout_gravity="center_horizontal" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerMes" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerAno"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="time"
+                android:ems="10"
+                android:id="@+id/horaLlegadaText"
+                android:hint="Hora de llegada" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Formato de 24 horas"
+                android:id="@+id/textView17"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:textColor="#858585"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Requiere hospedaje?"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="162dp"
+                            android:layout_height="wrap_content"
+                            android:text="Si"
+                            android:id="@+id/siHospBtn"
+                            android:checked="true"
+                            android:onClick="hospedajeTrue"/>
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:id="@+id/noHospBtn"
+                            android:layout_weight="0.42"
+                            android:checked="false"
+                            android:onClick="hospedajeFalse"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Del 20 al 22 de junio"
+                android:id="@+id/textView7"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:textColor="#858585"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Habitación"
+                android:id="@+id/textView15"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="165dp"
+                            android:layout_height="wrap_content"
+                            android:text="Sencillo"
+                            android:id="@+id/sencilloBtn"
+                            android:layout_gravity="center_horizontal"
+                            android:onClick="acompananteFalse"/>
+
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Doble"
+                            android:checked="true"
+                            android:id="@+id/dobleBtn"
+                            android:layout_gravity="center_horizontal"
+                            android:onClick="acompananteTrue"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En caso de doble, poner nombre del acompañante"
+                android:id="@+id/textView16"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/acompananteText"
+                android:layout_gravity="center_horizontal"
+                android:hint="Nombre acompañante" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Pago"
+                android:id="@+id/textView9"
+                android:layout_below="@+id/mailText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/tipoSpinner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="italic" />
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -351,130 +466,65 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:layout_width="165dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sencillo"
-                        android:id="@+id/sencilloBtn"
-                        android:layout_gravity="center_horizontal"
-                        android:onClick="acompananteFalse"/>
+                        android:text="Pago con transferencia"
+                        android:id="@+id/pagoTransfBtn"
+                        android:layout_gravity="right"
+                        android:checked="false" />
 
                     <RadioButton
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Doble"
-                        android:checked="true"
-                        android:id="@+id/dobleBtn"
+                        android:text="Pago con tarjeta"
+                        android:id="@+id/pagoTarjetaBtn"
                         android:layout_gravity="center_horizontal"
-                        android:onClick="acompananteTrue"/>
-                </RadioGroup>
+                        android:checked="true" />
 
+                </RadioGroup>
             </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En caso de doble, poner nombre del acompañante"
-            android:id="@+id/textView16"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/acompananteText"
-            android:layout_gravity="center_horizontal"
-            android:hint="Nombre acompañante" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Pago"
-            android:id="@+id/textView9"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="25dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic" />
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/passText"
+                android:layout_marginTop="25dp"
+                android:hint="Crea tu contraseña" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pago con transferencia"
-                    android:id="@+id/pagoTransfBtn"
-                    android:layout_gravity="right"
-                    android:checked="false" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/cnfPassText"
+                android:hint="Confirma tu contraseña" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pago con tarjeta"
-                    android:id="@+id/pagoTarjetaBtn"
-                    android:layout_gravity="center_horizontal"
-                    android:checked="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siguiente"
+                android:id="@+id/sigRegistroBtn"
+                android:layout_marginTop="30dp"
+                android:onClick="moduloRegistro"
+                android:textColor="#ffffff"
+                android:background="#000000" />
 
-            </RadioGroup>
         </LinearLayout>
 
-        <EditText
+    </ScrollView>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/passText"
-            android:layout_marginTop="25dp"
-            android:hint="Crea tu contraseña" />
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/footer" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/cnfPassText"
-            android:hint="Confirma tu contraseña" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Siguiente"
-            android:id="@+id/sigRegistroBtn"
-            android:layout_marginTop="30dp"
-            android:onClick="moduloRegistro"
-            android:textColor="#ffffff"
-            android:background="#000000" />
+        </LinearLayout>
 
-    </LinearLayout>
-
-</ScrollView>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
