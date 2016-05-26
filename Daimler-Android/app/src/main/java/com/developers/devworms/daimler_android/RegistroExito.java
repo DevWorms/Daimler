@@ -81,8 +81,21 @@ public class RegistroExito extends AppCompatActivity {
                     campo_validacion == 3116 ||
                     campo_validacion == 2540 ||
                     campo_validacion == 3116 ||
-                    campo_validacion == 8617 ||
-                    campo_validacion == 2040 ||
+                    campo_validacion == 8617){
+
+                Context context = getApplicationContext();
+                CharSequence text = "Bienvenido";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
+                Intent registrarScreen = new Intent(RegistroExito.this, prensa_menuActivity.class);
+                startActivity(registrarScreen);
+
+            }
+
+            else if(campo_validacion == 2040 ||
                     campo_validacion == 7037 ||
                     campo_validacion == 1976 ||
                     campo_validacion == 3886 ||

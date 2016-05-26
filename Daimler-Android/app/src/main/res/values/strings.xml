@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Daimler-Android</string>
+    <string name="app_name">Cumbre Postventa 2016</string>
 
     <string-array name="daimler_tipo_array">
         <item>Distribuidor</item>
@@ -69,5 +69,6 @@
         <item>2019</item>
         <item>2020</item>
     </string-array>
+    <string name="title_activity_presentaciones">presentacionesActivity</string>
 
 </resources>

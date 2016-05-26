@@ -26,13 +26,12 @@
                 android:src="@drawable/barras"/>
         </android.support.v7.widget.Toolbar>
 
-
-
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -50,74 +49,76 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
 
-            android:text="Cumbre post-venta"
             android:id="@+id/cumbrePVBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:background="@drawable/cumbre"
+            android:onClick="cumbreScreen"/>
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:text="Sede"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/sedeBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/sede"
+            android:onClick="sedeScreen" />
 
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:text="Agenda"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/agendaBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:background="@drawable/agenda"
+            android:onClick="agendaScreen" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:text="Avisos y Notificaciones"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/avisosBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/notificaciones"
+            android:onClick="avisosScreen" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:text="Presentaciones"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/presentBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:background="@drawable/presentaciones"
+            android:onClick="presentacionesScreen" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:text="Fotografías"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/fotoBtn"
-            android:layout_weight="1"
             android:textColor="#a5a7a6"
-            android:background="#e7e8ea" />
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/fotografias"
+            android:onClick="fotografiasScreen" />
 
     </LinearLayout>
 

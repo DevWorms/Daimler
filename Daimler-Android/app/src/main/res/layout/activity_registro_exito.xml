@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresar"
-        android:id="@+id/ingrValidBtn"
+        android:id="@+id/backCumbreBtn"
         android:layout_below="@+id/numValidText"
         android:layout_centerHorizontal="true"
         android:onClick="validarRegistro"

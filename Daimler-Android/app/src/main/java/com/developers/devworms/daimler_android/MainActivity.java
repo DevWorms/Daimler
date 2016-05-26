@@ -44,8 +44,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     EditText contrasena;
     EditText repiteContrasena;
 
-    //Traslado
+    // Traslado
     RadioButton siTras;
+
+    // Hospedaje
+    RadioButton siHosp;
 
     // Vuelo
     EditText vuelo_text;
@@ -54,11 +57,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner spinnerMes;
     Spinner spinnerAno;
 
-
     //  Hospedaje
     RadioButton sencillo;
     RadioButton doble;
     EditText acompanant;
+
+    // Pago
+    RadioButton pago;
 
 
     @Override
@@ -91,10 +96,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAno = (Spinner)findViewById(R.id.spinnerAno);
 
         //  Hospedaje
+        siHosp = (RadioButton)findViewById(R.id.siHospBtn);
         sencillo = (RadioButton)findViewById(R.id.sencilloBtn);
         doble = (RadioButton)findViewById(R.id.dobleBtn);
         acompanant = (EditText)findViewById(R.id.acompananteText);
 
+        //  Pago
+        pago = (RadioButton)findViewById(R.id.pagoTarjetaBtn);
 
 
         //  SPINNER TIPO
@@ -240,10 +248,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String mesStr = spinnerMes.getSelectedItem().toString();
         String anoStr = spinnerAno.getSelectedItem().toString();
         String horaStr = horaLlegada_text.getText().toString();
-        String sencilloStr = sencillo.getText().toString();
-        String dobleStr = doble.getText().toString();
         String acompStr = acompanant.getText().toString();
         String passStr = contrasena.getText().toString();
+        String translado;
+        String hospedaje;
+        String tipoHabitacion;
+        String tipoPago;
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -256,6 +266,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
+
+            if(siTras.isChecked())
+                translado = "Si";
+            else
+                translado = "No";
+
+            if(siHosp.isChecked())
+                hospedaje = "Si";
+            else
+                hospedaje = "No";
+
+            if(sencillo.isChecked())
+                tipoHabitacion = "Sencilla";
+            else
+                tipoHabitacion = "Doble";
+
+            if(pago.isChecked())
+                tipoPago = "Tarjeta";
+            else
+                tipoPago = "Transferencia";
         }
 
         /**
@@ -265,8 +295,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             // Building Parameters
             OkHttpClient client = new OkHttpClient();
 
-            MediaType mediaType = MediaType.parse("application/octet-stream");
-            RequestBody body = RequestBody.create(mediaType, "{\n    'nombre' : '" + nombreStr + "',\n    \"a_paterno\" : " + patStr + ",\n    \"a_materno\" : " + matStr + ",\n    \"email\" : " + mailStr + ",\n    \"tipo\" : " + tipoStr + ",\n    \"puesto\" : " + puestoStr + ",\n    \"empresa\" : " + empresaStr + ",\n    \"translado\" : \"translado\",\n    \"llegada_vuelo\" : " + vueloStr + ",\n    \"dia\" : " + diaStr + ",\n    \"mes\" : " + mesStr + ",\n    \"ano\" : " + anoStr + ",\n    \"hora_llegada\" : " + horaStr + ",\n    \"hospedaje\" : \"Miércoles\",\n    \"tipo_habitacion\" : " + tipoStr + ",\n    \"nombre_acompanante\" : " + acompStr + ",\n    \"contrasena\" : " + passStr + "\n}");
+            MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+            RequestBody body = RequestBody.create(mediaType, "nombre=" + nombreStr + "&a_paterno=" + patStr + "&a_materno=" + matStr +
+                    "&email=" + mailStr + "&tipo=" + tipoStr + "&puesto=" + puestoStr + "&empresa=" + empresaStr + "&translado=" + translado +
+                    "&llegada_vuelo=" + vueloStr + "&dia=" + diaStr + "&mes=" + mesStr + "&ano=" + anoStr + "&hora_llegada=" + horaStr +
+                    "&hospedaje=" + hospedaje + "&dias_hospedaje=" + "2" + "&tipo_habitacion=" + tipoHabitacion + "&nombre_acompanante=" + acompStr +
+                    "&contrasena=" + passStr + "&pago=" + tipoPago + "&telefono=" + telefonoStr);
             Request request = new Request.Builder()
                     .url("http://app-daimler.palindromo.com.mx/APP/registro.php")
                     .post(body)

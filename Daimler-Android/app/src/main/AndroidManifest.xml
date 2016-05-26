@@ -17,10 +17,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistroExito" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Ingresar" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".menu" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".RegistroExito"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Ingresar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".cumbreActivity" />
+        <activity android:name=".sedeActivity" />
+        <activity android:name=".agendaActivity" />
+        <activity android:name=".avisosActivity" />
+        <activity
+            android:name=".presentacionesActivity"
+            android:label="@string/title_activity_presentaciones"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".fotografiasActivity" />
+        <activity android:name=".prensa_menuActivity" />
+        <activity android:name=".cumbre2Activity" />
+        <activity android:name=".sede2Activity"></activity>
     </application>
 
 </manifest>
