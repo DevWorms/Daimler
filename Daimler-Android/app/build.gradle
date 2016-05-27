@@ -9,15 +9,24 @@ android {
         targetSdkVersion 23
         versionCode 4
         versionName "1.0"
+        multiDexEnabled = true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+        }
     }
-    productFlavors {
+
+    lintOptions {
+        abortOnError false
     }
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
 }
 
 dependencies {
@@ -31,4 +40,9 @@ dependencies {
     android {
         useLibrary 'org.apache.http.legacy'
     }
+
+    compile('com.amazonaws:aws-android-sdk-core:2.2.11')
+    compile('com.amazonaws:aws-android-sdk-cognito:2.2.11')
+    compile('com.amazonaws:aws-android-sdk-sns:2.2.11')
+    compile 'com.google.android.gms:play-services-gcm:7.8.0'
 }
