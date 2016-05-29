@@ -24,7 +24,6 @@ public class Ingresar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingresar);
         // Obtain a reference to the mobile client. It is created in the Application class,
         // but in case a custom Application class is not used, we initialize it here if necessary.
         AWSMobileClient.initializeMobileClientIfNecessary(this);
@@ -35,7 +34,7 @@ public class Ingresar extends AppCompatActivity {
         // Obtain a reference to the identity manager.
         identityManager = awsMobileClient.getIdentityManager();
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ingresar);
 
     }
 

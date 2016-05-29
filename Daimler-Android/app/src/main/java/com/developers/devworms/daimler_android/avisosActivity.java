@@ -17,4 +17,9 @@ public class avisosActivity extends AppCompatActivity {
         Intent newScreen = new Intent(avisosActivity.this, menu.class);
         startActivity(newScreen);
     }
+
+    public void notifScreen(View view){
+        Intent newScreen = new Intent(avisosActivity.this, notifActivity.class);
+        startActivity(newScreen);
+    }
 }

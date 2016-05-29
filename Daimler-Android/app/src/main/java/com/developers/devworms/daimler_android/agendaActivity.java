@@ -16,7 +16,7 @@ public class agendaActivity extends AppCompatActivity {
         WebView vistaWeb = (WebView)findViewById(R.id.cumbreWeb);
         vistaWeb.getSettings().setJavaScriptEnabled(true);
 
-        String pdf = "http://www.adobe.com/devnet/acrobat/pdfs/pdf_open_parameters.pdf";
+        String pdf = "http://palindromo.mx/daimlerapp/pdf/Vista8_Agenda.pdf";
         vistaWeb.loadUrl("http://drive.google.com/viewerng/viewer?embedded=true&url=" + pdf);
     }
 
