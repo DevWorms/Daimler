@@ -70,7 +70,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="@string/google_cloud_messaging_package" />
+                <category android:name="com.developers.devworms.daimler_android" />
             </intent-filter>
         </receiver>
 
