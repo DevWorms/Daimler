@@ -40,18 +40,26 @@
         <activity
             android:name=".menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".cumbreActivity" />
-        <activity android:name=".sedeActivity" />
-        <activity android:name=".agendaActivity" />
-        <activity android:name=".avisosActivity" />
-        <activity
-            android:name=".presentacionesActivity"
-            android:label="@string/title_activity_presentaciones"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".fotografiasActivity" />
-        <activity android:name=".prensa_menuActivity" />
-        <activity android:name=".cumbre2Activity" />
-        <activity android:name=".sede2Activity" />
+        <activity android:name=".cumbreActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".sedeActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".agendaActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".avisosActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".presentacionesActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".fotografiasActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivityWeb"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".prensa_menuActivity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".cumbre2Activity"
+                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".sede2Activity"
+                  android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- BEGIN - PUSH NOTIFICATIONS WITH GOOGLE CLOUD MESSAGING (GCM) -->
 
@@ -75,8 +83,8 @@
         </service>
 
         <!-- END - PUSH NOTIFICATIONS WITH GOOGLE CLOUD MESSAGING (GCM) -->
-        <activity android:name=".FotoSelect" />
-        <activity android:name=".notifActivity"></activity>
+        <activity android:name=".FotoSelect"  android:theme="@style/AppTheme.NoActionBar"  />
+        <activity android:name=".notifActivity"  android:theme="@style/AppTheme.NoActionBar" ></activity>
     </application>
 
 </manifest>
