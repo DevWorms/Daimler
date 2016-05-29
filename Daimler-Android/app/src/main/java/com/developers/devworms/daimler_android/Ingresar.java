@@ -3,9 +3,11 @@ package com.developers.devworms.daimler_android;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -62,6 +64,18 @@ public class Ingresar extends AppCompatActivity {
                     .setMessage(message)
                     .setPositiveButton(android.R.string.ok, null)
                     .show();
+
+
+            SQLiteOpenHelper admin = new SQLiteOpenHelper(Ingresar.this,
+                    "message", null, 1);
+
+            SQLiteDatabase bd = admin.getWritableDatabase();
+
+            ContentValues registro = new ContentValues();
+            registro.put("descripcion", message);
+
+            bd.insert("mensajes", null, registro);
+            bd.close();
         }
     };
 

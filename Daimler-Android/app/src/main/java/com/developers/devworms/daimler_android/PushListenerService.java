@@ -4,8 +4,10 @@ import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
@@ -60,7 +62,7 @@ public class PushListenerService extends GcmListenerService {
     }
 
     private void displayNotification(final String message) {
-        Intent notificationIntent = new Intent(this, MainActivity.class);
+        Intent notificationIntent = new Intent(this, Ingresar.class);
         notificationIntent.setFlags(
                 Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         int requestID = (int) System.currentTimeMillis();
@@ -81,6 +83,17 @@ public class PushListenerService extends GcmListenerService {
                 Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0, builder.build());
+
+        SQLiteOpenHelper admin = new SQLiteOpenHelper(this,
+                "message", null, 1);
+
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        ContentValues registro = new ContentValues();
+        registro.put("descripcion", message);
+
+        bd.insert("mensajes", null, registro);
+        bd.close();
     }
 
     private void broadcast(final String from, final Bundle data) {
