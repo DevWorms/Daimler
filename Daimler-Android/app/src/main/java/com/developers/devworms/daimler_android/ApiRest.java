@@ -33,7 +33,7 @@ public class ApiRest {
 
             MediaType mediaType = MediaType.parse("application/octet-stream");
             Request request = new Request.Builder()
-                    .url("http://app-daimler.palindromo.com.mx/APP/presentacion.php")
+                    .url("http://app-ecodsa.com.mx/daimler/presentacion.php")
                     .get()
                     .addHeader("cache-control", "no-cache")
                     .addHeader("postman-token", "b983b2f6-8cd7-5956-32f5-bc7cf4e53b9f")
@@ -44,7 +44,7 @@ public class ApiRest {
 
                 JSONObject sensorApi = values.getJSONObject(i);
                 PdfPojo pdfPojo = new PdfPojo();
-                pdfPojo.setId_presentacion(sensorApi.getString("id_presentacion"));
+                pdfPojo.setId_presentacion(sensorApi.getString("id"));
                 pdfPojo.setNombre(sensorApi.getString("nombre"));
                 pdfPojo.setLink_presentacion(sensorApi.getString("link_presentacion"));
                 lPdf.add(pdfPojo);
@@ -75,6 +75,41 @@ public class ApiRest {
             }
 
         }
+    }
+
+    public static List<NotificacionPojo> consultarNotificaciones(){
+
+        List<NotificacionPojo> lNotificaciones = new ArrayList<NotificacionPojo>();
+
+        try {
+            // TODO code application logic here
+
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("application/octet-stream");
+            Request request = new Request.Builder()
+                    .url("http://app-ecodsa.com.mx/daimler/avisos.php")
+                    .get()
+                    .addHeader("cache-control", "no-cache")
+                    .addHeader("postman-token", "b983b2f6-8cd7-5956-32f5-bc7cf4e53b9f")
+                    .build();
+            JSONArray values = new RequestApi().execute(request).get();
+
+            for (int i = 0; i < values.length(); i++) {
+
+                JSONObject sensorApi = values.getJSONObject(i);
+                NotificacionPojo notificacionPojo = new NotificacionPojo();
+                notificacionPojo.setId(sensorApi.getString("id"));
+                notificacionPojo.setNombre(sensorApi.getString("nombre"));
+                notificacionPojo.setDescripcion(sensorApi.getString("descripcion"));
+                lNotificaciones.add(notificacionPojo);
+            }
+        }
+        catch (Exception ex){
+
+        }
+
+        return lNotificaciones;
     }
 
 

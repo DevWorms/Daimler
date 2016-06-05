@@ -19,33 +19,21 @@ import java.util.List;
 
 public class avisosActivity extends AppCompatActivity {
 
-    final ArrayList<String> notificaciones = new ArrayList<String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avisos);
 
+
         final ArrayList<String> list = new ArrayList<String>();
         final ListView listview = (ListView) findViewById(R.id.listview);
+        final List<NotificacionPojo> lNotificaciones = ApiRest.consultarNotificaciones();
 
+        for(NotificacionPojo notificacion : lNotificaciones ){
 
-        SQLiteOpenHelper admin = new SQLiteOpenHelper(this,
-                "message", null, 1);
-
-        SQLiteDatabase bd = admin.getWritableDatabase();
-
-        Cursor fila = bd.rawQuery(
-                "select * from mensajes; ", null);
-
-        while (fila.moveToNext()) {
-            String mensaje  = fila.getString(0);
-            list.add("mensaje: " + mensaje.split(" ")[0] + "...");
-            notificaciones.add(mensaje);
+            list.add(notificacion.getNombre());
         }
-
-        bd.close();
 
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
@@ -59,21 +47,8 @@ public class avisosActivity extends AppCompatActivity {
                                     int position, long id) {
 
                 Intent newScreen = new Intent(avisosActivity.this, notifActivity.class);
-                newScreen.putExtra("mensaje", notificaciones.get(position));
+                newScreen.putExtra("mensaje", lNotificaciones.get(position).getDescripcion());
                 startActivity(newScreen);
-                /*
-                final String item = (String) parent.getItemAtPosition(position);
-                view.animate().setDuration(2000).alpha(0)
-                        .withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                list.remove(item);
-                                adapter.notifyDataSetChanged();
-                                view.setAlpha(1);
-
-
-                            }
-                        });*/
             }
 
         });

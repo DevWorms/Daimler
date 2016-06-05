@@ -125,7 +125,7 @@ public class fotografiasActivity extends AppCompatActivity {
                 for (int i=1;i<=12;i++){
 
                     Log.d("foto:", "f"+i);
-                    URL url = new URL("http://app-daimler.palindromo.com.mx/galeria/0"+i+".jpg");
+                    URL url = new URL("http://app-daimler.palindromo.com.mx/galeria/0"+i+".png");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setDoInput(true);
                     connection.connect();
