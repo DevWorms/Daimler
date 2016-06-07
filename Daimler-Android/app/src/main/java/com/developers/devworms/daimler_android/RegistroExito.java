@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 public class RegistroExito extends AppCompatActivity {
 
-    EditText campo;
-    int campo_validacion;
+    //EditText campo;
+    //int campo_validacion;
 
 
     @Override
@@ -19,13 +19,15 @@ public class RegistroExito extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_exito);
 
-        campo = (EditText)findViewById(R.id.numValidText);
+        //campo = (EditText)findViewById(R.id.numValidText);
 
     }
 
     public void validarRegistro(View view){
 
+        /*
         String codigo = campo.getText().toString();
+
         if(!codigo.equals("")){
             campo_validacion = Integer.parseInt(campo.getText().toString());
 
@@ -316,7 +318,19 @@ public class RegistroExito extends AppCompatActivity {
                 toast.show();
 
             }
+            */
+
+        Context context = getApplicationContext();
+        CharSequence text = "Bienvenido";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Intent registrarScreen = new Intent(RegistroExito.this, menu.class);
+        startActivity(registrarScreen);
+
         }
 
     }
-}
+

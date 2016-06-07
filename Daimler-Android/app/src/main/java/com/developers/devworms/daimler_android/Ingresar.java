@@ -95,7 +95,7 @@ public class Ingresar extends AppCompatActivity {
     }
 
     public void pantallaCodigo(View view) {
-        Intent llamarScreenCodigo = new Intent(this, RegistroExito.class);
+        Intent llamarScreenCodigo = new Intent(this, menu.class);
         startActivity(llamarScreenCodigo);
     }
 }
