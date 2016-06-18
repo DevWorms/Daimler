@@ -19,9 +19,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:theme="@style/AppTheme">
         <activity android:name=".SplashInicioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,26 +41,36 @@
         <activity
             android:name=".menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".cumbreActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".sedeActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".agendaActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".avisosActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".presentacionesActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".fotografiasActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActivityWeb"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".prensa_menuActivity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".cumbre2Activity"
-                  android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".sede2Activity"
-                  android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".cumbreActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sedeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".agendaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".avisosActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentacionesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fotografiasActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivityWeb"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".prensa_menuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".cumbre2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sede2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- BEGIN - PUSH NOTIFICATIONS WITH GOOGLE CLOUD MESSAGING (GCM) -->
 
@@ -84,8 +94,20 @@
         </service>
 
         <!-- END - PUSH NOTIFICATIONS WITH GOOGLE CLOUD MESSAGING (GCM) -->
-        <activity android:name=".FotoSelect"  android:theme="@style/AppTheme.NoActionBar"  />
-        <activity android:name=".notifActivity"  android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity
+            android:name=".FotoSelect"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".notifActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fotografias2Activity"
+            android:label="@string/title_activity_fotografias2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".fotografias3Activity" />
+        <activity android:name=".fotoMenuActivity" />
+        <activity android:name=".menuActActivity" />
+        <activity android:name=".agendaDetalleActivity"></activity>
     </application>
 
 </manifest>

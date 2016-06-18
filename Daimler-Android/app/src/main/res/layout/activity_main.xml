@@ -163,13 +163,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/selecPuestoText"
                 android:hint="Puesto"
-                android:enabled="false" />
+                android:enabled="true" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/selecEmpresaText"
-                android:hint="Empresa" />
+                android:hint="Empresa"
+                android:enabled="true" />
 
             <TextView
                 android:layout_width="wrap_content"

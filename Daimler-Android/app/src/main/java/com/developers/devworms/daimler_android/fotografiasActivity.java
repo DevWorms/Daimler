@@ -24,8 +24,8 @@ public class fotografiasActivity extends AppCompatActivity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    Bitmap imgb1,imgb2,imgb3,imgb4,imgb5,imgb6,imgb7,imgb8,imgb9,imgb10;
-    ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10;
+    Bitmap imgb1,imgb2,imgb3,imgb4,imgb5,imgb6,imgb7,imgb8,imgb9,imgb10,imgb11,imgb12,imgb13,imgb14,imgb15,imgb16,imgb17,imgb18;
+    ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18;
     ByteArrayOutputStream bs;
 
     @Override
@@ -43,11 +43,19 @@ public class fotografiasActivity extends AppCompatActivity {
         img8= (ImageView) findViewById(R.id.imgFotos8);
         img9= (ImageView) findViewById(R.id.imgFotos9);
         img10= (ImageView) findViewById(R.id.imgFotos10);
+        img11= (ImageView) findViewById(R.id.imgFotos11);
+        img12= (ImageView) findViewById(R.id.imgFotos12);
+        img13= (ImageView) findViewById(R.id.imgFotos13);
+        img14= (ImageView) findViewById(R.id.imgFotos14);
+        img15= (ImageView) findViewById(R.id.imgFotos15);
+        img16= (ImageView) findViewById(R.id.imgFotos16);
+        img17= (ImageView) findViewById(R.id.imgFotos17);
+        img18= (ImageView) findViewById(R.id.imgFotos18);
         new LoadAlbums().execute();
     }
 
     public void cumbreScreen(View view){
-        Intent newScreen = new Intent(fotografiasActivity.this, menu.class);
+        Intent newScreen = new Intent(fotografiasActivity.this, fotoMenuActivity.class);
         startActivity(newScreen);
     }
 
@@ -91,6 +99,30 @@ public class fotografiasActivity extends AppCompatActivity {
         }else if(numeroImg==10){
             bs = new ByteArrayOutputStream();
             imgb10.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==11){
+            bs = new ByteArrayOutputStream();
+            imgb11.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==12){
+            bs = new ByteArrayOutputStream();
+            imgb12.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==13){
+            bs = new ByteArrayOutputStream();
+            imgb13.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==14){
+            bs = new ByteArrayOutputStream();
+            imgb14.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==15){
+            bs = new ByteArrayOutputStream();
+            imgb15.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==16){
+            bs = new ByteArrayOutputStream();
+            imgb16.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==17){
+            bs = new ByteArrayOutputStream();
+            imgb17.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+        }else if(numeroImg==18){
+            bs = new ByteArrayOutputStream();
+            imgb18.compress(Bitmap.CompressFormat.JPEG, 50, bs);
         }
         intent.putExtra("byteArray", bs.toByteArray());
         intent.putExtra("numeroImg",numeroImg);
@@ -122,7 +154,7 @@ public class fotografiasActivity extends AppCompatActivity {
             Log.d("Entro:", "si");
             try {
                 c=0;
-                for (int i=1;i<=12;i++){
+                for (int i=1;i<=18;i++){
 
                     Log.d("foto:", "f"+i);
                     URL url = new URL("http://app-daimler.palindromo.com.mx/galeria/0"+i+".png");
@@ -150,11 +182,27 @@ public class fotografiasActivity extends AppCompatActivity {
                         imgb9 = BitmapFactory.decodeStream(input);
                     }else if(i==10){
                         imgb10 = BitmapFactory.decodeStream(input);
+                    }else if(i==11) {
+                        imgb11 = BitmapFactory.decodeStream(input);
+                    }else if(i==12){
+                        imgb12 = BitmapFactory.decodeStream(input);
+                    }else if(i==13){
+                        imgb13 = BitmapFactory.decodeStream(input);
+                    }else if(i==14){
+                        imgb14 = BitmapFactory.decodeStream(input);
+                    }else if(i==15){
+                        imgb15 = BitmapFactory.decodeStream(input);
+                    }else if(i==16){
+                        imgb16 = BitmapFactory.decodeStream(input);
+                    }else if(i==17){
+                        imgb17 = BitmapFactory.decodeStream(input);
+                    }else if(i==18){
+                        imgb18 = BitmapFactory.decodeStream(input);
                     }
                     c=c+1;
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            pDialog.setMessage("Listing..." + c * 8+"%");
+                            pDialog.setMessage("Listing..." + c * 5+"%");
                         }
                     });
 
@@ -192,6 +240,14 @@ public class fotografiasActivity extends AppCompatActivity {
                     img8.setImageBitmap(imgb8);
                     img9.setImageBitmap(imgb9);
                     img10.setImageBitmap(imgb10);
+                    img11.setImageBitmap(imgb11);
+                    img12.setImageBitmap(imgb12);
+                    img13.setImageBitmap(imgb13);
+                    img14.setImageBitmap(imgb14);
+                    img15.setImageBitmap(imgb15);
+                    img16.setImageBitmap(imgb16);
+                    img17.setImageBitmap(imgb17);
+                    img18.setImageBitmap(imgb18);
 
                     img1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -271,6 +327,71 @@ public class fotografiasActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             Log.d("FOTO", "1");
                             mostrarimage(10);
+
+                        }
+                    });
+                    img11.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "foto"+imgb1.toString());
+                            mostrarimage(11);
+
+
+                        }
+                    });
+                    img12.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(12);
+
+                        }
+                    });
+                    img13.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(13);
+
+                        }
+                    });
+                    img14.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(14);
+
+                        }
+                    });
+                    img15.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(15);
+
+                        }
+                    });
+                    img16.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(16);
+
+                        }
+                    });
+                    img17.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(17);
+
+                        }
+                    });
+                    img18.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("FOTO", "1");
+                            mostrarimage(18);
 
                         }
                     });

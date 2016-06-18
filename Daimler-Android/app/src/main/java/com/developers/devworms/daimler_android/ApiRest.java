@@ -57,6 +57,45 @@ public class ApiRest {
         return lPdf;
     }
 
+    public static List<menuPojo> consultarListadoMenu(String dia) {
+
+        List<menuPojo> lMenu = new ArrayList<menuPojo>();
+
+        try {
+            // TODO code application logic here
+
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("application/octet-stream");
+            Request request = new Request.Builder()
+                    .url("http://app-ecodsa.com.mx/daimler/" + dia + ".php")
+                    .get()
+                    .addHeader("cache-control", "no-cache")
+                    .addHeader("postman-token", "b983b2f6-8cd7-5956-32f5-bc7cf4e53b9f")
+                    .build();
+            JSONArray values = new RequestApi().execute(request).get();
+
+            for (int i = 0; i < values.length(); i++) {
+
+                JSONObject sensorApi = values.getJSONObject(i);
+                menuPojo menPojo = new menuPojo();
+                menPojo.setId(sensorApi.getString("id"));
+                menPojo.setNombre(sensorApi.getString("nombre"));
+                menPojo.setSalon(sensorApi.getString("salon"));
+                menPojo.setHorario(sensorApi.getString("horario"));
+                menPojo.setCodigo(sensorApi.getString("codigo"));
+                menPojo.setRecomendaciones(sensorApi.getString("recomendaciones"));
+                menPojo.setFecha(sensorApi.getString("fecha"));
+                lMenu.add(menPojo);
+            }
+        }
+        catch (Exception ex){
+
+        }
+
+        return lMenu;
+    }
+
     private static class RequestApi extends AsyncTask<Request, Void, JSONArray> {
         @Override
         protected JSONArray doInBackground(Request... params) {

@@ -74,6 +74,7 @@
 
     <string name="title_activity_presentaciones">presentacionesActivity</string>
     <string name="google_cloud_messaging_package">com.developers.devworms.daimler_android</string>
+    <string name="title_activity_fotografias2">fotografias2Activity</string>
 
 
 </resources>

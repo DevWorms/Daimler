@@ -93,34 +93,17 @@
         android:id="@+id/ingresarBtn"
         android:textColor="#ffffff"
         android:background="#000000"
-        android:onClick="llamarRegistro" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SI ya cuentas con un código de acceso, ingresalo."
-            android:id="@+id/textView13"
-            android:layout_below="@+id/mailText"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/tipoSpinner"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="30dp"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
+        android:onClick="llamarRegistro"
+            android:layout_marginTop="15dp" />
 
         <Button
             android:layout_width="353dp"
             android:layout_height="wrap_content"
-            android:text="Ingresa tu código de registro"
+            android:text="INGRESA A LA APLICACIÓN"
             android:id="@+id/codRegBtn"
             android:textColor="#ffffff"
             android:background="#000000"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="20dp"
             android:onClick="pantallaCodigo"/>
 
 

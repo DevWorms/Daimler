@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        /*
             if(position == 0)    {
                 puesto.setEnabled(true);
                 empresa.setEnabled(true);
@@ -224,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 puesto.setEnabled(false);
                 empresa.setEnabled(false);
             }
+        */
     }
 
     @Override

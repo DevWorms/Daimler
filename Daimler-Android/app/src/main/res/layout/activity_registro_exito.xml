@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" En breve serás contactado para realizar tu pago y te proporcionaremos tu código de registro"
+        android:text=" En breve serás contactado para realizar tu pago."
         android:textAlignment="center"
         android:id="@+id/textView18"
         android:textSize="20dp"
@@ -67,28 +67,17 @@
         android:layout_alignParentEnd="true"
         android:textIsSelectable="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:ems="10"
-        android:id="@+id/numValidText"
-        android:layout_below="@+id/textView18"
-        android:layout_centerHorizontal="true"
-        android:hint="0000"
-        android:layout_marginTop="15dp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresar"
         android:id="@+id/backCumbreBtn"
-        android:layout_below="@+id/numValidText"
         android:layout_centerHorizontal="true"
         android:onClick="validarRegistro"
         android:textColor="#ffffff"
-        android:background="#000000" />
+        android:background="#000000"
+        android:layout_below="@+id/textView18"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>
         <LinearLayout

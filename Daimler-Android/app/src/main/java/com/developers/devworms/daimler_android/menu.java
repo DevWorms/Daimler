@@ -113,7 +113,7 @@ public class menu extends AppCompatActivity {
     }
 
     public void fotografiasScreen(View view){
-        Intent newScreen = new Intent(menu.this, fotografiasActivity.class);
+        Intent newScreen = new Intent(menu.this, fotoMenuActivity.class);
         startActivity(newScreen);
     }
 }
